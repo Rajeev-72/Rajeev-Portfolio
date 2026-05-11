@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajeev Mangal | Portfolio</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 10%;
+      background:rgba(15,23,42,0.95);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+    }
+
+    nav h2{
+      color:#38bdf8;
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:120px 10%;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      margin-bottom:15px;
+    }
+
+    .hero-text h1 span{
+      color:#38bdf8;
+    }
+
+    .hero-text h3{
+      font-size:28px;
+      margin-bottom:20px;
+      color:#cbd5e1;
+    }
+
+    .hero-text p{
+      line-height:1.8;
+      color:#cbd5e1;
+      max-width:600px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      background:#38bdf8;
+      color:black;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      background:white;
+    }
+
+    .hero-img{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      min-width:300px;
+    }
+
+    .circle{
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      background:linear-gradient(45deg,#38bdf8,#2563eb);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:120px;
+      font-weight:bold;
+      color:white;
+      box-shadow:0 0 40px rgba(56,189,248,0.5);
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:42px;
+      margin-bottom:50px;
+      color:#38bdf8;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+    }
+
+    .about-card{
+      background:#1e293b;
+      padding:30px;
+      border-radius:15px;
+      transition:0.3s;
+    }
+
+    .about-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .about-card h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .about-card p{
+      line-height:1.7;
+      color:#cbd5e1;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .skill-box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:12px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .skill-box:hover{
+      background:#38bdf8;
+      color:black;
+      transform:scale(1.05);
+    }
+
+    .skill-box h3{
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    /* PROJECTS */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 20px rgba(56,189,248,0.4);
+    }
+
+    .project-top{
+      height:200px;
+      background:linear-gradient(45deg,#38bdf8,#2563eb);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:60px;
+    }
+
+    .project-content{
+      padding:25px;
+    }
+
+    .project-content h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .project-content p{
+      color:#cbd5e1;
+      line-height:1.6;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      max-width:700px;
+      margin:auto;
+      background:#1e293b;
+      padding:40px;
+      border-radius:15px;
+      text-align:center;
+    }
+
+    .contact-box h3{
+      margin-bottom:20px;
+      color:#38bdf8;
+      font-size:30px;
+    }
+
+    .contact-box p{
+      margin:12px 0;
+      color:#cbd5e1;
+      font-size:18px;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#020617;
+      color:#94a3b8;
+    }
+
+    /* ANIMATION */
+
+    .hidden{
+      opacity:0;
+      transform:translateY(50px);
+      transition:all 1s;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+
+    .contact-box p{
+  margin:12px 0;
+  color:#cbd5e1;
+  font-size:18px;
+}
+
+/* PASTE BELOW THIS */
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:18px 0;
+  font-size:20px;
+}
+
+.contact-item span{
+  font-size:24px;
+}
+
+.contact-item a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+  font-weight:500;
+}
+
+.contact-item a:hover{
+  color:#38bdf8;
+}
+
+.contact-item p{
+  margin:0;
+  color:#cbd5e1;
+}
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero{
+        text-align:center;
+        padding-top:180px;
+      }
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .hero-text h3{
+        font-size:22px;
+      }
+
+      .circle{
+        width:250px;
+        height:250px;
+        margin-top:40px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h2>Rajeev.Portfolio  </h2>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text hidden">
+      <h1>Hi, I'm <span>Rajeev Mangal</span></h1>
+
+      <h3>BCA Student | Web Developer | ML Enthusiast</h3>
+
+      <p>
+        I am pursuing BCA from Galgotias University and passionate about
+        web development, machine learning, and software development.
+        I love building modern websites and real-world projects using
+        HTML, CSS, JavaScript, Python, and Machine Learning.
+      </p>
+
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+
+    <div class="hero-img hidden">
+      <div class="circle">RM</div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title hidden">About Me</h2>
+
+    <div class="about">
+
+      <div class="about-card hidden">
+        <h3>Education</h3>
+
+        <p>
+         I am currently pursuing a Bachelor of Computer Applications (BCA) 
+         from Galgotias University and have a strong passion 
+         for programming, Machine Learning, and Artificial Intelligence.
+        </p>
+      </div>
+
+      <div class="about-card hidden">
+        <h3>Career Goal</h3>
+
+        <p>
+         My goal is to build a successful career in software development
+         by creating innovative solutions using Artificial Intelligence,
+         Machine Learning, and modern web technologies.
+        </p>
+      </div>
+
+      <div class="about-card hidden">
+        <h3>Interests</h3>
+
+        <p>
+          I enjoy coding, learning new technologies, solving DSA problems,
+          building projects, exploring machine learning concepts,
+          and improving problem-solving skills.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title hidden">Skills</h2>
+
+    <div class="skills">
+
+      <div class="skill-box hidden">
+        <h3>HTML</h3>
+        <p>Responsive Website Structure</p>
+      </div>
+
+      <div class="skill-box hidden">
+        <h3>CSS</h3>
+        <p>Modern UI & Responsive Design</p>
+      </div>
+
+      <div class="skill-box hidden">
+        <h3>JavaScript</h3>
+        <p>Interactive Web Functionality</p>
+      </div>
+
+      <div class="skill-box hidden">
+        <h3>Python</h3>
+        <p>Programming & Automation</p>
+      </div>
+
+      <div class="skill-box hidden">
+        <h3>Machine Learning</h3>
+        <p>Prediction Models & Data Analysis</p>
+      </div>
+
+      <div class="skill-box hidden">
+        <h3>DSA</h3>
+        <p>Problem Solving & Algorithms</p>
+      </div>
+      <div class="skill-box hidden">
+        <h3>C++ Programming</h3>
+        <p>Logic Building & Problem Solving</p>
+    </div>
+    <div class="skill-box hidden">
+      <h3>Java Programming</h3>
+      <p>OOP Concepts & Application Development</p>
+    </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title hidden">Projects</h2>
+
+    <div class="projects">
+
+      <div class="project-card hidden">
+
+        <div class="project-top">💰</div>
+
+        <div class="project-content">
+          <h3>Gold Price Prediction</h3>
+
+          <p>
+            Machine Learning project that predicts gold prices using
+            Random Forest Regressor with historical financial data
+            and visualization techniques.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="project-card hidden">
+
+        <div class="project-top">🌐</div>
+
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+
+          <p>
+            Responsive personal portfolio website developed using
+            HTML, CSS, and JavaScript with modern UI and animations.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="project-card hidden">
+
+        <div class="project-top">🛡️</div>
+
+        <div class="project-content">
+          <h3>🚨 Gun Detection System</h3>
+
+          <p>
+            Python-based security system that detects guns
+            using image processing and AI technology.
+          </p>
+      </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="section-title hidden">Contact Me</h2>
+
+    <div class="contact-box hidden">
+
+  <h3>Let's Connect</h3>
+
+  <div class="contact-item">
+    <span>📧</span>
+    <a href="mailto:yourgmail@gmail.com">
+      rajeevmangal@gmail.com
+    </a>
+  </div>
+
+  <div class="contact-item">
+    <span>💼</span>
+    <a href="https://www.linkedin.com/in/rajeev-mangal-7a5b5a337" target="_blank">
+      LinkedIn Profile
+    </a>
+  </div>
+
+  <div class="contact-item">
+    <span>💻</span>
+    <a href="https://github.com/Rajeev-72" target="_blank">
+      GitHub Profile
+    </a>
+  </div>
+
+  <div class="contact-item">
+    <span>📍</span>
+    <p>Greater Noida,India</p>
+  </div>
+
+</div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Rajeev Mangal | All Rights Reserved
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // SCROLL ANIMATION
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+
+      });
+
+    });
+
+    hiddenElements.forEach((el) => observer.observe(el));
+
+
+
+    // TYPING EFFECT
+
+    const text = "BCA Student | Web Developer | ML Enthusiast";
+
+    let index = 0;
+
+    const typingElement = document.querySelector(".hero-text h3");
+
+    function typeEffect(){
+
+      if(index < text.length){
+
+        typingElement.innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typeEffect, 80);
+
+      }
+
+    }
+
+    typingElement.innerHTML = "";
+
+    typeEffect();
+
+  </script>
+
+</body>
+</html>
